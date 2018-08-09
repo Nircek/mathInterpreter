@@ -16,8 +16,8 @@ class MathInterpreter:
           br[-1] += [i]
     self.br = br + [[len(self.s), len(self.s)]]
   def find(self, f):
-    for i in range(len(self.br)-1):
-      j = self.s.find(f, self.br[i][1], self.br[i+1][0])
+    for i in range(len(self.br)-1, 0, -1):
+      j = self.s.find(f, self.br[i-1][1], self.br[i][0])
       if j != -1:
         return j
     return j
@@ -27,13 +27,9 @@ class MathInterpreter:
     l = 1
     for e in o:
       j = self.find(e)
-      if i == -1:
+      if j > i:
         i = j
         l = len(e)
-      else:
-        if j < i and j != -1:
-          i = j
-          l = len(e)
     if i == -1:
       return False
     else:
@@ -42,6 +38,10 @@ class MathInterpreter:
   
   def __init__(self, s):
     self.s = s
+    if s == '':
+      self.p = True
+      self.a = '0'
+      return
     if self.explode(('+', '-')):
       pass
     elif self.explode(('*', '/')):
