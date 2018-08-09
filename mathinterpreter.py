@@ -22,3 +22,10 @@ class MathInterpreter:
     self.a = MathInterpreter(s[:o])
     self.b = MathInterpreter(s[o+l:])
     self.z = s[o:o+l]
+  def __str__(self):
+    return self.view()
+  def view(self):
+    if self.p:
+      return self.a
+    else:
+      return self.z + '(' + self.a.view() + ', ' + self.b.view() + ')'
