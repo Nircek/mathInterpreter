@@ -1,5 +1,4 @@
 from mathinterpreter import *
 
-m = MathInterpreter()
-m.calc()
+m = MathInterpreter('2+2-2')
 
