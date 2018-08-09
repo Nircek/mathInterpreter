@@ -61,3 +61,15 @@ class MathInterpreter:
       return self.a
     else:
       return self.z + '(' + self.a.view() + ', ' + self.b.view() + ')'
+  def calc(self):
+    if self.p:
+      return float(self.a)
+    else:
+      if self.z == '+':
+        return self.a.calc()+self.b.calc()
+      elif self.z == '-':
+        return self.a.calc()-self.b.calc()
+      elif self.z == '*':
+        return self.a.calc()*self.b.calc()
+      elif self.z == '/':
+        return self.a.calc()/self.b.calc()
