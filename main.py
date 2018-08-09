@@ -1,5 +1,6 @@
 from mathinterpreter import *
 
-m = MathInterpreter('2+2-2')
-print(m.view())
+s = 'a+b-c*d'
+m = MathInterpreter(s)
+print(s, '\n', m.view(), sep='')
 

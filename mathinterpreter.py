@@ -1,20 +1,28 @@
 class MathInterpreter:
-  def explodeFirst(self, s):
-    p = s.find('+')
-    m = s.find('-')
-    if p == -1:
-      if m == -1:
-        return False
+  def explode(self, s, o):
+    i = -1
+    l = 1
+    for e in o:
+      j = s.find(e)
+      if i == -1:
+        i = j
+        l = len(e)
       else:
-        self.sep(s, m)
+        if j < i and j != -1:
+          i = j
+          l = len(e)
+    if i == -1:
+      return False
     else:
-      if m == -1:
-        self.sep(s, p)
-      else:
-        self.sep(s, min(m, p))
-    return True
+      self.sep(s, i, l)
+      return True
+  
   def __init__(self, s):
-    if not self.explodeFirst(s):
+    if self.explode(s, ('+', '-')):
+      pass
+    elif self.explode(s, ('*', '/')):
+      pass
+    else:
       self.p = True
       self.a = s
   def sep(self, s, o, l=1):
