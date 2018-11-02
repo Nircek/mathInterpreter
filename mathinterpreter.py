@@ -57,7 +57,7 @@ class MathInterpreter:
     self.b = MathInterpreter(self.s[o+l:]) # set its right argument
     self.z = self.s[o:o+l] # set operation char
   def __str__(self):
-    return self.view() 
+    return self.view()
   def view(self):
     if self.p: # if it's primitive
       return self.a # return value
