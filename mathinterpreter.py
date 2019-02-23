@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 class MathInterpreter:
   def set_brackets(self):
     # look for brackets and index them in self.br

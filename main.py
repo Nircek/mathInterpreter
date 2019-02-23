@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import mathinterpreter as mi
 
 s = '(-2+(3)-5)*10' # set equation to do
