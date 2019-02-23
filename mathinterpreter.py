@@ -24,7 +24,7 @@ class MathInterpreter:
         return j # return its position
     return j # or -1 if it's not found
   def explode(self, o):
-    self.set_brackets(); # init searching
+    self.set_brackets() # init searching
     i = -1
     l = 1
     for e in o:
@@ -34,10 +34,10 @@ class MathInterpreter:
         l = len(e)
     if i == -1: # if we found nothing
       return False
-    else: # if we have something
-      self.sep(i, l) # separate this to operation and constants
-      return True
-  
+    # if we have something
+    self.sep(i, l) # separate this to operation and constants
+    return True
+
   def __init__(self, s):
     self.s = s
     if s == '':
@@ -61,19 +61,17 @@ class MathInterpreter:
   def view(self):
     if self.p: # if it's primitive
       return self.a # return value
-    else: # if not
-      return self.z + '(' + self.a.view() + ', ' + self.b.view() + ')'
-	  # return formatted version of its content
+    # if not, return formatted version of its content
+    return self.z + '(' + self.a.view() + ', ' + self.b.view() + ')'
   def calc(self):
     if self.p: # if it's primitive
       return float(self.a) # return value
-    else: # if not
-	  # interpret operation char and return executed operation
-      if self.z == '+':
+    # if not, interpret operation char and return executed operation
+    if self.z == '+':
         return self.a.calc()+self.b.calc()
-      elif self.z == '-':
+    if self.z == '-':
         return self.a.calc()-self.b.calc()
-      elif self.z == '*':
+    if self.z == '*':
         return self.a.calc()*self.b.calc()
-      elif self.z == '/':
+    if self.z == '/':
         return self.a.calc()/self.b.calc()
