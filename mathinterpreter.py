@@ -61,9 +61,8 @@ class MathInterpreter:
   def view(self):
     if self.p: # if it's primitive
       return self.a # return value
-    else: # if not
-      return self.z + '(' + self.a.view() + ', ' + self.b.view() + ')'
-	  # return formatted version of its content
+    # if not, return formatted version of its content
+    return self.z + '(' + self.a.view() + ', ' + self.b.view() + ')'
   def calc(self):
     if self.p: # if it's primitive
       return float(self.a) # return value
